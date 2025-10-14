@@ -145,7 +145,9 @@ export default function AdminPanel() {
     <div className="p-4 max-w-6xl mx-auto">
       {groups.map(([manzana, lotes]) => (
         <section key={manzana} className="mb-10">
-          <h2 className="text-2xl font-semibold mb-3">Manzana {manzana}</h2>
+          <h2 className="text-2xl font-semibold mb-3 text-black">
+            Manzana {manzana}
+          </h2>
 
           <div className="overflow-x-auto rounded border border-gray-300 shadow-sm">
             <table className="min-w-full table-fixed divide-y-2 divide-gray-200">
@@ -223,7 +225,7 @@ export default function AdminPanel() {
         >
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
           <div className="relative z-10 w-full max-w-xl rounded-3xl bg-white p-6 shadow-xl">
-            <h3 className="text-3xl font-semibold mb-6">
+            <h3 className="text-3xl font-semibold mb-6 text-black">
               Lote {editing.numero}
             </h3>
 

@@ -69,7 +69,7 @@ export default function MapLeaflet({
           <div class="font-semibold text-[15px] text-gray-900 border-b-2 ${estadoClass} pb-1 mb-2">
             ${p.codigo ?? "Sin código"}
           </div>
-          <div class="flex justify-between"><span class="font-medium">Manzana:</span><span>${
+          <div class="flex justify-between text-black"><span class="font-medium">Manzana:</span><span>${
             p.manzana ?? "-"
           }</span></div>
           <div class="flex justify-between"><span class="font-medium">Lote Nº:</span><span>${

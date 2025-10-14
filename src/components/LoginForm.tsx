@@ -2,7 +2,7 @@ import { useState } from "react";
 import { supabase } from "@/db/supabase";
 
 const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL ?? "admin@lotizador.com";
-const ADMIN_CODE = import.meta.env.VITE_ADMIN_CODE ?? "74368402";
+const ADMIN_CODE = import.meta.env.VITE_ADMIN_CODE ?? "72900580";
 
 export default function LoginForm() {
   const [numero, setNumero] = useState("");

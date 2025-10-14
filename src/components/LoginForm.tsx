@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { supabase } from "@/db/supabase";
 
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL ?? "admin@lotizador.com";
+const ADMIN_CODE = import.meta.env.VITE_ADMIN_CODE ?? "74368402";
+
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
+  const [numero, setNumero] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -12,11 +15,23 @@ export default function LoginForm() {
     setErr(null);
     setLoading(true);
     try {
+      // Validaciones mínimas
+      if (!/^\d{1,}$/.test(numero)) {
+        throw new Error("El número debe contener solo dígitos.");
+      }
+      if (ADMIN_CODE && numero !== ADMIN_CODE) {
+        throw new Error("Número incorrecto.");
+      }
+
+      // Siempre usamos el email fijo del admin
+      const email = ADMIN_EMAIL;
+
       const { error } = await supabase.auth.signInWithPassword({
         email,
-        password: pass,
+        password: pass, // la contraseña real del admin en Supabase
       });
       if (error) throw error;
+
       window.location.href = "/admin";
     } catch (e: any) {
       setErr(e.message ?? "Error al iniciar sesión");
@@ -31,7 +46,7 @@ export default function LoginForm() {
 
   return (
     <div className="min-h-[70vh] w-full flex flex-col items-center justify-start pt-8 sm:pt-12">
-      {/* Encabezado con icono + título */}
+      {/* Encabezado */}
       <div className="mb-6 flex items-center gap-3">
         <svg
           viewBox="0 0 24 24"
@@ -50,16 +65,18 @@ export default function LoginForm() {
         <form onSubmit={onSubmit} className="space-y-6">
           <div>
             <label className="block text-base font-medium text-gray-800 mb-2">
-              Nombre de usuario
+              Número de acceso
             </label>
             <input
-              type="email"
+              type="text"
+              inputMode="numeric"
+              pattern="\d*"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={numero}
+              onChange={(e) => setNumero(e.target.value.replace(/\D/g, ""))}
               className="w-full rounded-full border border-gray-300 px-4 py-3 h-12 text-gray-900 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-rose-400"
-              placeholder=""
-              autoComplete="username"
+              placeholder="Ej: 75340287"
+              autoComplete="one-time-code"
             />
           </div>
 
@@ -74,6 +91,7 @@ export default function LoginForm() {
               onChange={(e) => setPass(e.target.value)}
               className="w-full rounded-full border border-gray-300 px-4 py-3 h-12 text-gray-900 outline-none focus:ring-2 focus:ring-rose-400"
               autoComplete="current-password"
+              placeholder="••••••"
             />
           </div>
 
@@ -83,7 +101,6 @@ export default function LoginForm() {
             </div>
           )}
 
-          {/* 🔹 Botón centrado */}
           <div className="flex justify-center">
             <button
               type="submit"
@@ -96,7 +113,6 @@ export default function LoginForm() {
         </form>
       </div>
 
-      {/* 🔹 Enlace interactivo */}
       <button
         onClick={goHome}
         className="mt-6 text-gray-700 text-base font-medium hover:text-rose-600 transition"

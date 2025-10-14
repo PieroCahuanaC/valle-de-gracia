@@ -1,0 +1,44 @@
+---
+// src/components/Mapa.astro
+import MapLeaflet from "./MapLeaflet.tsx";
+
+// 🔹 Importa los GeoJSON locales (sin tocar)
+import lotesA from "../data/lotes_A.json";
+import lotesB from "../data/lotes_B.json";
+import lotesC from "../data/lotes_C.json";
+import lotesD from "../data/lotes_D.json";
+import lotesE from "../data/lotes_E.json";
+import lotesF from "../data/lotes_F.json";
+import lotesG from "../data/lotes_G.json";
+import lotesH from "../data/lotes_H.json";
+import lotesI from "../data/lotes_I.json";
+import lotesJ from "../data/lotes_J.json";
+
+// 🔹 Combina todos los GeoJSON localmente
+const base = {
+  type: "FeatureCollection",
+  features: [
+    ...lotesA.features,
+    ...lotesB.features,
+    ...lotesC.features,
+    ...lotesD.features,
+    ...lotesE.features,
+    ...lotesF.features,
+    ...lotesG.features,
+    ...lotesH.features,
+    ...lotesI.features,
+    ...lotesJ.features,
+  ],
+};
+---
+
+// 🔹 Renderiza el componente React (cliente)
+<div class="w-screen h-screen">
+  <MapLeaflet
+    client:only="react"
+    imageUrl="/mapa.webp"
+    imageWidth={2400}
+    imageHeight={1800}
+    geojsonData={base}
+  />
+</div>

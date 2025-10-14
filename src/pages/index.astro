@@ -1,12 +1,18 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
-import Counter from "../components/counter.js";
+import Mapa from "../components/Mapa.astro";
 
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { supabase } from "../db/supabase";
+
+import "../styles/global.css";
+
+const { data, error } = await supabase.from("todos").select("*"); //De ejemplo
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <Counter client:load />
+  <Header />
+  <Mapa />
 </Layout>

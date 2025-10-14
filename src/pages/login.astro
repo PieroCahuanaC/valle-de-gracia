@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import LoginForm from "@/components/LoginForm.tsx";
+import "../styles/global.css";
+---
+
+<Layout>
+  <main class="w-screen h-screen flex items-center justify-center bg-gray-50">
+    <LoginForm client:only="react" />
+  </main>
+</Layout>

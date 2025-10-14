@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import AdminPanelUI from "@/components/AdminPanelUI";
+import "../../styles/global.css";
+import AdminHeader from "@/components/AdminHeader";
+// (opcional) aquí, más adelante, podrías hacer SSR para traer los lotes
+// y pasárselos como props a <AdminPanelUI lots={...} />
+---
+
+<Layout>
+  <div class="min-h-screen bg-gray-50">
+    <AdminHeader client:only="react" />
+    <AdminPanelUI client:only="react" />
+  </div>
+</Layout>

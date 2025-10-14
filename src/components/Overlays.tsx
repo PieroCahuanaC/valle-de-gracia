@@ -72,7 +72,7 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     w: BTN1.w,
     h: BTN1.h,
     url: btnUrl1,
-    onClick: () => window.open("https://wa.me/51961455984", "_blank"),
+    onClick: () => window.open("https://wa.me/51968723979", "_blank"),
   });
 
   // Logo WhatsApp dentro
@@ -83,7 +83,7 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     w: LOGO1.w,
     h: LOGO1.h,
     url: "/wspp.png",
-    onClick: () => window.open("https://wa.me/51961455984", "_blank"),
+    onClick: () => window.open("https://wa.me/51968723979", "_blank"),
   });
 
   // --- BOTÓN 2: Google Maps ---
@@ -126,7 +126,8 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     w: BTN2.w,
     h: BTN2.h,
     url: btnUrl2,
-    onClick: () => window.open("https://maps.google.com", "_blank"),
+    onClick: () =>
+      window.open("https://maps.app.goo.gl/QSLHtTzebHm26LHS6", "_blank"),
   });
 
   // Logo Google Maps dentro (tú reemplazas el URL)

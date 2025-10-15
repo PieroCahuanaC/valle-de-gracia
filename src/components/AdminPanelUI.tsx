@@ -274,7 +274,7 @@ export default function AdminPanel() {
               <button
                 onClick={saveModal}
                 disabled={savingId === editing.id}
-                className="rounded-full bg-rose-600 px-8 py-4 text-white font-medium hover:bg-rose-700 disabled:opacity-60"
+                className="rounded-full bg-green-700 px-8 py-4 text-white font-medium hover:bg-rose-700 disabled:opacity-60"
               >
                 Guardar
               </button>

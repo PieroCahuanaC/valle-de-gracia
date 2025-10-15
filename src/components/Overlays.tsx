@@ -55,11 +55,11 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     url: labelUrl1,
   });
 
-  // Botón WhatsApp
+  // Botón WhatsApp (fondo oscuro #BFC2BF)
   const svgBtn1 = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${BTN1.w}" height="${BTN1.h}">
     <rect x="1.5" y="1.5" width="${BTN1.w - 3}" height="${BTN1.h - 3}"
-          rx="22" ry="22" fill="#fff" stroke="${COLOR}" stroke-width="3"/>
+          rx="22" ry="22" fill="#BFC2BF" stroke="${COLOR}" stroke-width="3"/>
     <style>
       .label { font: 700 42px system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: ${COLOR}; }
     </style>
@@ -109,11 +109,11 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     url: labelUrl2,
   });
 
-  // Botón Google Maps
+  // Botón Google Maps (fondo oscuro #BFC2BF)
   const svgBtn2 = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${BTN2.w}" height="${BTN2.h}">
     <rect x="1.5" y="1.5" width="${BTN2.w - 3}" height="${BTN2.h - 3}"
-          rx="22" ry="22" fill="#fff" stroke="${COLOR}" stroke-width="3"/>
+          rx="22" ry="22" fill="#BFC2BF" stroke="${COLOR}" stroke-width="3"/>
     <style>
       .label { font: 700 42px system-ui, -apple-system, "Segoe UI", Roboto, Arial; fill: ${COLOR}; }
     </style>
@@ -130,14 +130,14 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
       window.open("https://maps.app.goo.gl/QSLHtTzebHm26LHS6", "_blank"),
   });
 
-  // Logo Google Maps dentro (tú reemplazas el URL)
+  // Logo Google Maps dentro
   const LOGO2 = { x: BTN2.x + 32, y: BTN2.y + 18, w: 74, h: 74 };
   addImageOverlayAt(Lmod, map, {
     x: LOGO2.x,
     y: LOGO2.y,
     w: LOGO2.w,
     h: LOGO2.h,
-    url: "/googlemaps.png", //
+    url: "/googlemaps.png",
     onClick: () => window.open("https://maps.google.com", "_blank"),
   });
 }

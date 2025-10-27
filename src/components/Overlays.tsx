@@ -72,7 +72,7 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     w: BTN1.w,
     h: BTN1.h,
     url: btnUrl1,
-    onClick: () => window.open("https://wa.me/51968723979", "_blank"),
+    onClick: () => window.open("https://wa.me/51951255787", "_blank"),
   });
 
   // Logo WhatsApp dentro
@@ -83,7 +83,7 @@ export function addStaticOverlays(Lmod: typeof import("leaflet"), map: L.Map) {
     w: LOGO1.w,
     h: LOGO1.h,
     url: "/wspp.png",
-    onClick: () => window.open("https://wa.me/51968723979", "_blank"),
+    onClick: () => window.open("https://wa.me/51951255787", "_blank"),
   });
 
   // --- BOTÓN 2: Google Maps ---

@@ -60,23 +60,3 @@ src/
 2. Al cargar la pagina, se combinan todos los GeoJSON y se renderizan sobre la imagen del plano usando Leaflet con CRS.Simple
 3. Al mismo tiempo, se consultan los datos actualizados de la tabla `lotes` en Supabase (estado, precio, area, etc.) y se enriquecen los poligonos con esa informacion
 4. El administrador puede iniciar sesion y modificar los datos de cada lote desde el panel de administracion
-
-## Configuracion
-
-Variables de entorno necesarias (`.env.local`):
-
-```
-PUBLIC_SUPABASE_URL=<tu_url_de_supabase>
-PUBLIC_SUPABASE_KEY=<tu_anon_key_de_supabase>
-VITE_ADMIN_EMAIL=<email_del_admin>
-VITE_ADMIN_CODE=<codigo_de_acceso>
-```
-
-## Comandos
-
-| Comando           | Accion                                               |
-| ----------------- | ---------------------------------------------------- |
-| `npm install`     | Instala las dependencias                             |
-| `npm run dev`     | Inicia el servidor de desarrollo en `localhost:4321` |
-| `npm run build`   | Construye el sitio para produccion en `./dist/`      |
-| `npm run preview` | Previsualiza el build local                          |
